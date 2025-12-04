@@ -53,8 +53,13 @@
   </table>
   <script>
     let table = document.body.firstElementChild;
+	let tbody = table.tBodies[0];
 
-    // ... tu código...
+	for (let i = 0; i < tbody.rows.length; i++)
+	{
+		td = tbody.rows[i].cells[i];
+		td.style.backgroundColor = 'red';
+	}
   </script>
 </body>
 </html>
