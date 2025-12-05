@@ -58,6 +58,22 @@
           * El primer input en ese formulario.
           * El último input en ese formulario.
       ***/
+	 let age_table = document.getElementById("age-table");
+	 let labels = age_table.getElementsByTagName("label");
+	 let first_td = age_table.querySelector("td");
+	 let form = document.getElementsByName("search")[0];
+	 let first_input = form.querySelector("input");
+	 let last_input = form.querySelectorAll("input")[form.querySelectorAll.length - 1];
+
+	 console.log(age_table);
+	 console.log(labels);
+	 console.log(first_td);
+	 console.log(form);
+	 console.log(first_input);
+	 console.log(last_input);
+
+
+
     </script>
   </body>
 </html>
