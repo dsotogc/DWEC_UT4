@@ -53,6 +53,10 @@
       * El número de <li> anidados: todos los descendientes, incluidos los profundamente anidados.
      *****/
       // ... tu código...
+	
+	console.log(document.querySelectorAll("ul li").length);
+	for (let i of document.querySelectorAll("ul li"))
+		console.log(i.textContent);
     </script>
   </body>
 </html>

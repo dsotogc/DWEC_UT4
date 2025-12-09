@@ -20,6 +20,13 @@
       * Pero no comienza con http://internal.com.
     *************/
       // ...Tu código...
+	let a = document.querySelectorAll("a");
+	for (let i of a)
+	{
+		let href = i.getAttribute("href");
+		if (href && href.includes("://") && !href.startsWith("http://internal.com/"))
+			i.style.color = "orange";
+	}
     </script>
   </body>
 </html>
