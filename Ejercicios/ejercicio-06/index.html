@@ -8,7 +8,9 @@
      Escribe el código para obtener el atributo data-widget-name del documento y leer su valor.
      ****/
       /* Tu código */
-	let at_datawidget = document.div.getAttribute("data-widget-name");
+	  let div = document.body.firstElementChild;
+	  console.log(div);
+	let at_datawidget = div.getAttribute("data-widget-name");
 	console.log(at_datawidget);
     </script>
   </body>
