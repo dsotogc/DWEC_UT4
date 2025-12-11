@@ -9,7 +9,8 @@
 	<script>
 		function clonarTabla(ptrTabla)
 		{
-			
+			let t_copia = ptrTabla.cloneNode(true);
+			ptrTabla.after(t_copia);
 		}
 
 		function eliminarFila(ptrTabla, fila)
