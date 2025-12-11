@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function clonarTabla(ptrTabla)
+		{
+			
+		}
+
+		function eliminarFila(ptrTabla, fila)
+		{
+			let filaEliminar = ptrTabla.querySelectorAll("tr")[fila - 1]
+			filaEliminar.remove();
+		}
+
+		function insertarTitulo(ptrTabla)
+		{
+			ptrTabla.insertAdjacentHTML("beforebegin", "<h1>Esta es mi Tabla!</h1>");
+		}
+
+		function insertarFila(ptrTabla, col)
+		{
+			let texto = "<tr>";
+			for (let i = 0; i < col; i++)
+				texto += "<td>Nuevo |</td>"
+			texto += "</tr>";
+
+			ptrTabla.insertAdjacentHTML("afterbegin", texto);
+		}
+
+		function crearTabla(filas, columnas)
+		{
+			let texto = "<table>"
+			for (let i = 0; i < filas; i++)
+			{
+				texto += "<tr>";
+				for (let j = 0; j < columnas; j++)
+				{
+					if (i == j)
+						texto += `<td style="background-color: aqua">[${i}, ${j}]</td>`;
+					else
+						texto += `<td>[${i}, ${j}]</td>`;
+
+				}
+				texto += "</tr>";
+			}
+			texto += "</table>";
+
+			document.body.insertAdjacentHTML("afterbegin", texto);
+			return document.body.firstElementChild;
+		}
+
+		tabla = crearTabla(5, 6);
+		insertarFila(tabla, 6);
+		insertarTitulo(tabla);
+		eliminarFila(tabla, 2)
+		clonarTabla(tabla);
+	</script>
+</body>
+</html>
