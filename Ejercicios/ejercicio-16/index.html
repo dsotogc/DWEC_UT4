@@ -150,6 +150,25 @@
           ubicacion: "Oficina J",
         },
       ];
+	
+	let textoHTML = "<table border=1px solid black>";
+	for (let i = 0; i < equiposInformaticos.length; i++)
+	{
+		textoHTML += "<tr>";
+		if (i == 0)
+		{
+			for (let j = 0; j < Object.keys(equiposInformaticos[0]).length; j++)
+				textoHTML += `<th>${Object.keys(equiposInformaticos[0])[j]}</th>`;
+		}
+		else
+		{
+			for (let x=0; x < Object.keys(equiposInformaticos[i]).length; x++)
+				textoHTML += `<td>${Object.values(equiposInformaticos[i])[x]}</td>`;
+		}
+		textoHTML += "</tr>";
+	}
+	textoHTML += "</table>";
+	document.body.insertAdjacentHTML("afterbegin", textoHTML);
     </script>
   </body>
 </html>
