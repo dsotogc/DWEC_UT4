@@ -58,9 +58,25 @@
 		let enlacesLength = document.querySelectorAll("a").length;
 		let primEnlace = document.querySelectorAll("a")[0].href;
 		let penUltEnlace = document.querySelectorAll("a")[document.querySelectorAll("a").length - 2].href;
-		//let enlacesPrueba = document.querySelectorAll("a").filter((i) => i.getAttribute("href") == "http://prueba");
-		console.log(enlacesPrueba);
-		let texto = "";
+		let enlacesPrueba = [];
+		for (let i = 0; i < enlacesLength; i++)
+		{
+			if (document.querySelectorAll("a")[i].href.includes("http://prueba"))
+				enlacesPrueba.push(document.querySelectorAll("a")[i]);
+		}
+		let n_enlacesPrueba = enlacesPrueba.length;
+		let n_enlacesP1 = document.querySelectorAll("p:first-of-type a").length;
+
+
+		let texto = `<p>Parrafos de la página: ${textLength}</p>
+					<p>Segundo párrafo: ${text}</p>
+					<p>Número de enlaces: ${enlacesLength}</p>
+					<p>Dirección del primer enlace: ${primEnlace}</p>
+					<p>Dirección penúltimo enlace: ${penUltEnlace}</p>
+					<p>Enlaces a http://prueba: ${n_enlacesPrueba}</p>
+					<p>Enlaces en el primer párrafo: ${n_enlacesP1}</p>`;
+
+		document.querySelector("#info").innerHTML = texto;
 
 		document
 	</script>
