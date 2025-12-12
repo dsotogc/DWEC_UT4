@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+
+	</ul>
+	<script>
+		let respuesta = prompt("Añadir a lista...");
+		let textoHTML = "";
+		let ul = document.querySelector('ul');
+		
+		while (respuesta != null && respuesta != '')
+		{
+			let li = document.createElement('li');
+			li.textContent = respuesta;
+			ul.append(li);
+			//textoHTML += `<li>${respuesta}</li>`;
+			respuesta = prompt("Añadir a lista...");
+		}
+	</script>
+</body>
+</html>
