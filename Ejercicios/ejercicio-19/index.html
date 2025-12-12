@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function crearTabla()
+		{
+			const COL = 5;
+			const ROW = 4;
+			const COLORES = ["red", "green", "purple", "aqua", "brown", "yellow", "orange", "green", "beige", "salmon", "skyblue", "gold", "teal", "tomato", "grey", "darkcyan", "forestgreen", "lightpink", "olive", "orchid"];
+
+			textHTML = "<table border=1px solid black>";
+			for (let i = 0; i < ROW; i++)
+			{
+				textHTML += "<tr>"
+				for (let j = 0; j < COL; j++)
+				{
+					let n_aleatorio = Math.floor(Math.random() * 20);
+					textHTML += `<td style="background-color:${COLORES[n_aleatorio]}">holaa</td>`;
+				}
+				textHTML += "</tr>";
+			}
+			textHTML += "</table>";
+
+			document.body.insertAdjacentHTML("afterbegin", textHTML);
+		}
+
+		crearTabla();
+	</script>
+</body>
+</html>
