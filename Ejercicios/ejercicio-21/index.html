@@ -44,7 +44,10 @@
 	items.forEach(li =>{
 		let descendientes = li.querySelectorAll("li").length;
 		if (descendientes > 0)
-			li.textContent += `[${descendientes}]`;
+		{
+			let nombreLi = li.firstChild;
+			nombreLi.textContent += `[${descendientes}]`;
+		}
 	})
   </script>
 
