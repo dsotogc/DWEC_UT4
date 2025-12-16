@@ -28,7 +28,44 @@
 
   <script>
     function createCalendar(elem, year, month) {
-      // ...tu código que genera el calendario en elem ...
+
+		let tabla = document.createElement("table");
+		tabla.setAttribute("style", "border: 1px solid black");
+		elem.append(tabla);
+
+		const primerTR = "<tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr>";
+		tabla.innerHTML += primerTR;
+
+		let fecha = new Date(year, month - 1);
+		while (fecha.getMonth != month)
+		{
+			let dia = fecha.getDate;
+			let d_sem = fecha.getDay;
+			if (d_sem == 0)
+				d_sem = 7;
+
+			if (d_sem == 1 || dia == 1)
+			{
+				let nuevoTR = document.createElement("tr");
+				tabla.append(nuevoTR);
+			}
+
+			if (dia == 1)
+			{
+				for (let i = 0; i < d_sem - 1; i++)
+				{
+					let td = document.createElement("td");
+					nuevoTR.append(td);
+					td.textContent = " ";
+				}
+			}
+			let tdnuevo = document.createElement("td");
+			nuevoTR.append(td);
+			td.textContent = dia;
+
+			
+			fecha.setDate(dia + 1);
+		}
     }
 
     createCalendar(calendar, 2012, 9);
