@@ -60,27 +60,34 @@
     function createTree(container, data) {
 		
 		let ulPrincipal = document.createElement("ul");
+		container.append(ulPrincipal);
 		for (let i in data)
 		{
 			let liPrincipal = document.createElement("li");
+			liPrincipal.textContent = i;
+			ulPrincipal.append(liPrincipal);
+			
+			ulSecundario = document.createElement("ul");
+			liPrincipal.append(ulSecundario);
+			for (j in data[i])
+			{
+				liSecundario = document.createElement("li");
+				liSecundario.textContent = j;
+				ulSecundario.append(liSecundario);
 
+				if (Object.keys(data[i][j]).length > 0)
+				{
+					ulTerciario = document.createElement("ul");
+					liSecundario.append(ulTerciario);
+					for (y in data[i][j])
+					{
+						liTerciario = document.createElement("li");
+						liTerciario.textContent = y;
+						ulTerciario.append(liTerciario);
+					}
+				}
+			}
 		}
-		container.append(ulPrincipal);
-		// let text = "<ul>";
-		// let arr_aux = Object.entries(data);
-		// for (let i = 0; i < arr_aux.length; i++)
-		// {
-		// 	text += `<li>${container.keys[i]}`;
-		// 	let arr_aux2 = Object.entries(arr_aux[i][1]);
-		// 	for (let j = 0; j < container[i].keys; j++)
-		// 	{
-
-		// 	}
-		// 	text += "</li>";
-		// }
-		// text += "</ul>";
-
-		// container.insertAdjacentHTML("afterbegin", text);
     }
 
     createTree(document.getElementById('tree'), data);
