@@ -37,35 +37,21 @@
 		tabla.innerHTML += primerTR;
 
 		let fecha = new Date(year, month - 1);
-		while (fecha.getMonth != month)
+		let texto = "<tr>";
+		for (let i = 0; i < (fecha.getDay() + 6) % 7; i++)
+			texto += "<td></td>";
+
+		while (fecha.getMonth() == month - 1)
 		{
-			let dia = fecha.getDate;
-			let d_sem = fecha.getDay;
-			if (d_sem == 0)
-				d_sem = 7;
-
-			if (d_sem == 1 || dia == 1)
-			{
-				let nuevoTR = document.createElement("tr");
-				tabla.append(nuevoTR);
-			}
-
-			if (dia == 1)
-			{
-				for (let i = 0; i < d_sem - 1; i++)
-				{
-					let td = document.createElement("td");
-					nuevoTR.append(td);
-					td.textContent = " ";
-				}
-			}
-			let tdnuevo = document.createElement("td");
-			nuevoTR.append(td);
-			td.textContent = dia;
-
-			
+			let dia = fecha.getDate();
+			texto += `<td>${dia}</td>`;
 			fecha.setDate(dia + 1);
+			if ((fecha.getDay() + 6) % 7 == 7)
+				texto += "</tr>"
+			if ((fecha.getDay() + 6) % 7 == 0)
+				texto += "<tr>"
 		}
+		tabla.insertAdjacentHTML("beforeend",texto);
     }
 
     createCalendar(calendar, 2012, 9);
