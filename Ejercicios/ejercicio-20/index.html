@@ -59,21 +59,28 @@
 
     function createTree(container, data) {
 		
-		let text = "<ul>";
-		let arr_aux = Object.entries(data);
-		for (let i = 0; i < arr_aux.length; i++)
+		let ulPrincipal = document.createElement("ul");
+		for (let i in data)
 		{
-			text += `<li>${container.keys[i]}`;
-			let arr_aux2 = Object.entries(arr_aux[i][1]);
-			for (let j = 0; j < container[i].keys; j++)
-			{
+			let liPrincipal = document.createElement("li");
 
-			}
-			text += "</li>";
 		}
-		text += "</ul>";
+		container.append(ulPrincipal);
+		// let text = "<ul>";
+		// let arr_aux = Object.entries(data);
+		// for (let i = 0; i < arr_aux.length; i++)
+		// {
+		// 	text += `<li>${container.keys[i]}`;
+		// 	let arr_aux2 = Object.entries(arr_aux[i][1]);
+		// 	for (let j = 0; j < container[i].keys; j++)
+		// 	{
 
-		container.insertAdjacentHTML("afterbegin", text);
+		// 	}
+		// 	text += "</li>";
+		// }
+		// text += "</ul>";
+
+		// container.insertAdjacentHTML("afterbegin", text);
     }
 
     createTree(document.getElementById('tree'), data);

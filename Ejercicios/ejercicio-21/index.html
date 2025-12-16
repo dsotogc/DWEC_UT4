@@ -40,7 +40,12 @@
   </ul>
 
   <script>
-    // ... tu código ...
+    let items = document.querySelectorAll("li");
+	items.forEach(li =>{
+		let descendientes = li.querySelectorAll("li").length;
+		if (descendientes > 0)
+			li.textContent += `[${descendientes}]`;
+	})
   </script>
 
 </body>
