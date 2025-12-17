@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ej1</title>
+  </head>
+  <body>
+    <div id="juego"></div>
+    <script>
+		
+		const IMG = ['AbrahamSimpson.png', 'BartSimpson.png', 'HomerSimpson.png', 'LisaSimpson.png', 'MaggieSimpson.png', 'MargeSimpson.png'];
+		const COL = 4;
+		const ROW = 3;
+		let arraux_img = [];
+
+		let div_elem = document.getElementById("juego");
+		let tabla = document.createElement("table");
+		div_elem.append(tabla);
+		let texto = "";
+
+		function imagenAleatoria()
+		{
+			let correcto = false;
+			let imagen = "";
+			while (!correcto)
+			{
+				let n_aleatorio = Math.floor(Math.random() * 6);
+
+				if (arraux_img.indexOf(IMG[n_aleatorio]) == -1)
+				{
+					arraux_img.push(IMG[n_aleatorio]);
+					imagen = IMG[n_aleatorio];
+					correcto = true;
+				}
+
+				else if (arraux_img.indexOf(IMG[n_aleatorio]) != -1)
+				{
+					if (arraux_img.lastIndexOf(IMG[n_aleatorio]) == arraux_img.indexOf(IMG[n_aleatorio]))
+					{
+						arraux_img.push(IMG[n_aleatorio]);
+						imagen = IMG[n_aleatorio];
+						correcto = true;
+					}
+				}
+				console.log(n_aleatorio);
+			}
+			return imagen;
+		}
+
+		for (let i = 0; i < ROW; i++)
+		{
+			texto += "<tr>";
+			for (let i = 0; i < COL; i++)
+			{
+				texto += `<td><img src='ej1-archivos/${imagenAleatoria()}'></td>`;
+			}
+			texto += "</tr>";
+		}
+
+		tabla.insertAdjacentHTML("afterbegin", texto);
+	</script>
+  </body>
+</html>
