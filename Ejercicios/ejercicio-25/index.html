@@ -23,5 +23,24 @@
 </table>
 
 <script>
-  // ... tu código ...
+	const table = document.getElementById("table");
+	const trs = Array.from(table.querySelectorAll("tr")).slice(1);
+
+	trs.sort((tr1, tr2) => {
+		let uno = tr1.firstElementChild.textContent;
+		let dos = tr2.firstElementChild.textContent;
+
+		if (uno > dos)
+			return 1;
+		else if (uno < dos)
+			return -1;
+		else
+			return 0;
+	});
+
+	for (let i = 0; i < trs.length; i++)
+	{
+		table.firstElementChild.append(trs[i]);
+	}
+
 </script>
